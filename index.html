@@ -1,102 +1,502 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prime Estate | Find Your Dream Home</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Home-Finder</title>
+  <meta name="description"
+    content="NestFinder helps you find, buy, rent, or sell properties. Browse 1,200+ curated real estate listings in top US cities with expert agents ready to help.">
+  <meta name="keywords"
+    content="real estate, homes for sale, apartments, property listings, buy home, rent home, NestFinder">
+  <meta name="author" content="NestFinder">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph (Social Sharing) -->
+  <meta property="og:title" content="NestFinder — Find Your Dream Home">
+  <meta property="og:description" content="Browse 1,200+ real estate listings. Buy, rent, or sell with trusted agents.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.nestfinder.com">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.nestfinder.com">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-<nav class="navbar">
-<h2 class="logo">PrimeEstate</h2>
+  <!-- ── MOBILE MENU ── -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+    <button class="mobile-close" onclick="toggleMenu()" aria-label="Close menu">✕</button>
+    <nav>
+      <a href="#" onclick="toggleMenu()">Home</a>
+      <a href="#featured" onclick="toggleMenu()">Listings</a>
+      <a href="#categories" onclick="toggleMenu()">Categories</a>
+      <a href="#about" onclick="toggleMenu()">About</a>
+      <a href="#contact" onclick="toggleMenu()">Contact</a>
+    </nav>
+  </div>
 
-<ul class="nav-links" id="navLinks">
-<li><a href="#">Home</a></li>
-<li><a href="#properties">Properties</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
+  <!-- ── HEADER / NAV ── -->
+  <header>
+    <nav id="navbar" aria-label="Main navigation">
+      <a href="#" class="logo" aria-label="NestFinder Home">
+        <div class="logo-dot"></div> Home-Finder
+      </a>
 
-<div class="menu" onclick="toggleMenu()">☰</div>
-</nav>
-</header>
+      <ul class="nav-links">
+        <li><a href="#" class="active" aria-current="page">Home</a></li>
+        <li><a href="#featured">Listings</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
 
+      <div class="nav-actions">
+        <a href="#featured" class="btn-primary">Browse Homes</a>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
 
-<section class="hero">
-<div class="hero-text">
-<h1>Find Your Dream Home</h1>
-<p>Buy, Sell or Rent Properties Easily</p>
-<button>Explore Properties</button>
-</div>
-</section>
+  <!-- ── HERO ── -->
+  <main>
+    <section class="hero" id="hero" aria-label="Hero section">
+      <div class="hero-content">
+        <p class="hero-badge">Premium Real Estate</p>
+        <h1>Find Your <em>Dream</em> Home Today</h1>
+        <p class="hero-sub">Browse 1,200+ verified property listings across top US cities. Buy, rent, or sell with
+          expert guidance.</p>
 
+        <div class="search-bar" role="search">
+          <select aria-label="Select location">
+            <option value="">Select Location</option>
+            <option value="new-york">New York, NY</option>
+            <option value="los-angeles">Los Angeles, CA</option>
+            <option value="chicago">Chicago, IL</option>
+            <option value="miami">Miami, FL</option>
+          </select>
+          <div class="divider"></div>
+          <select aria-label="Select property type">
+            <option value="">Property Type</option>
+            <option value="apartment">Apartment</option>
+            <option value="house">House</option>
+            <option value="villa">Villa</option>
+            <option value="commercial">Commercial</option>
+          </select>
+          <button onclick="handleSearch()" type="button">Search</button>
+        </div>
 
-<section class="properties" id="properties">
+        <div class="hero-stats" aria-label="Statistics">
+          <div class="stat">
+            <strong class="stat-num" data-target="1200">0</strong>
+            <span class="stat-label">Active Listings</span>
+          </div>
+          <div class="stat">
+            <strong class="stat-num" data-target="850">0</strong>
+            <span class="stat-label">Happy Clients</span>
+          </div>
+          <div class="stat">
+            <strong class="stat-num" data-target="10">0</strong>
+            <span class="stat-label">Years Experience</span>
+          </div>
+        </div>
+      </div>
 
-<h2>Featured Properties</h2>
+      <div class="hero-visual" aria-hidden="true">
+        <img src="4.jpg" alt="Modern dream home exterior" width="800" height="520" loading="eager">
+        <div class="hero-chip chip-light">
+          <span>🏡</span>
+          <div>
+            <small>New Listing</small>
+            <strong>$1.2M Villa</strong>
+          </div>
+        </div>
+        <div class="hero-chip chip-dark">
+          <small>Properties Sold</small>
+          <strong>850+</strong>
+        </div>
+      </div>
+    </section>
 
-<div class="property-grid">
+    <!-- ── FEATURED PROPERTIES ── -->
+    <section class="featured" id="featured" aria-labelledby="featured-heading">
+      <div class="section-header reveal">
+        <div>
+          <p class="section-label">Curated Selection</p>
+          <h2 id="featured-heading">Featured Properties</h2>
+        </div>
+        <a href="#" class="view-all">View All Listings →</a>
+      </div>
 
-<div class="card">
-<img src="1.jpg">
-<h3>Luxury Villa</h3>
-<p>Delhi | ₹2.5 Cr</p>
-</div>
+      <div class="properties-grid">
 
-<div class="card">
-<img src="2.jpg">
-<h3>Modern Apartment</h3>
-<p>Noida | ₹85 Lakh</p>
-</div>
+        <article class="prop-card reveal reveal-delay-1">
+          <div class="prop-image">
+            <img src="2.jpg" alt="Modern Apartment in New York" width="600" height="220" loading="lazy">
+            <span class="prop-badge sale">For Sale</span>
+            <button class="prop-fav" onclick="toggleFav(this)" aria-label="Add to wishlist">♡</button>
+          </div>
+          <div class="prop-body">
+            <p class="prop-price">$500,000 <span>/unit</span></p>
+            <h3 class="prop-name">Modern Apartment</h3>
+            <p class="prop-loc">📍 New York, NY</p>
+            <ul class="prop-specs" aria-label="Property details">
+              <li>🛏 2 Beds</li>
+              <li>🚿 2 Bath</li>
+              <li>📐 1200 sq.ft</li>
+            </ul>
+          </div>
+        </article>
 
-<div class="card">
-<img src="3.jpg">
-<h3>Family House</h3>
-<p>Gurgaon | ₹1.2 Cr</p>
-</div>
+        <article class="prop-card reveal reveal-delay-2">
+          <div class="prop-image">
+            <img src="1.jpg"
+              alt="Luxury Villa in Los Angeles" width="600" height="220" loading="lazy">
+            <span class="prop-badge premium">Premium</span>
+            <button class="prop-fav" onclick="toggleFav(this)" aria-label="Add to wishlist">♡</button>
+          </div>
+          <div class="prop-body">
+            <p class="prop-price">$850,000 <span>/unit</span></p>
+            <h3 class="prop-name">Luxury Villa</h3>
+            <p class="prop-loc">📍 Los Angeles, CA</p>
+            <ul class="prop-specs" aria-label="Property details">
+              <li>🛏 4 Beds</li>
+              <li>🚿 4 Bath</li>
+              <li>📐 3500 sq.ft</li>
+            </ul>
+          </div>
+        </article>
 
-</div>
+        <article class="prop-card reveal reveal-delay-3">
+          <div class="prop-image">
+            <img src="3.jpg"
+              alt="Single Family Home in Chicago" width="600" height="220" loading="lazy">
+            <span class="prop-badge rent">For Rent</span>
+            <button class="prop-fav" onclick="toggleFav(this)" aria-label="Add to wishlist">♡</button>
+          </div>
+          <div class="prop-body">
+            <p class="prop-price">$3,200 <span>/month</span></p>
+            <h3 class="prop-name">Single Family Home</h3>
+            <p class="prop-loc">📍 Chicago, IL</p>
+            <ul class="prop-specs" aria-label="Property details">
+              <li>🛏 3 Beds</li>
+              <li>🚿 2 Bath</li>
+              <li>📐 1800 sq.ft</li>
+            </ul>
+          </div>
+        </article>
 
-</section>
+      </div>
+    </section>
 
+    <!-- ── CATEGORIES ── -->
+    <section id="categories" aria-labelledby="categories-heading">
+      <div class="section-header reveal">
+        <div>
+          <p class="section-label">Browse By Type</p>
+          <h2 id="categories-heading">Property Categories</h2>
+        </div>
+        <a href="#" class="view-all">View All →</a>
+      </div>
+      <div class="categories-grid">
+        <a href="#" class="cat-card reveal reveal-delay-1">
+          <div class="cat-icon">🏢</div>
+          <strong class="cat-name">Apartments</strong>
+          <span class="cat-count">320 listings</span>
+        </a>
+        <a href="#" class="cat-card reveal reveal-delay-2">
+          <div class="cat-icon">🏠</div>
+          <strong class="cat-name">Houses</strong>
+          <span class="cat-count">485 listings</span>
+        </a>
+        <a href="#" class="cat-card reveal reveal-delay-3">
+          <div class="cat-icon">🏬</div>
+          <strong class="cat-name">Commercial</strong>
+          <span class="cat-count">140 listings</span>
+        </a>
+        <a href="#" class="cat-card reveal reveal-delay-4">
+          <div class="cat-icon">🌿</div>
+          <strong class="cat-name">Land</strong>
+          <span class="cat-count">95 listings</span>
+        </a>
+        <a href="#" class="cat-card reveal reveal-delay-4">
+          <div class="cat-icon">🏖️</div>
+          <strong class="cat-name">Vacation</strong>
+          <span class="cat-count">62 listings</span>
+        </a>
+      </div>
+    </section>
 
-<section class="about" id="about">
+    <!-- ── WHY CHOOSE US ── -->
+    <section class="why" aria-labelledby="why-heading">
+      <div class="section-header reveal">
+        <div>
+          <p class="section-label">Our Promise</p>
+          <h2 id="why-heading">Why Choose NestFinder</h2>
+        </div>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-icon">🤝</div>
+          <h3 class="why-title">Trusted Agents</h3>
+          <p class="why-text">Verified, experienced agents dedicated to finding your perfect home with honesty and
+            expertise.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-icon">🗺️</div>
+          <h3 class="why-title">Wide Range</h3>
+          <p class="why-text">From city apartments to countryside villas — over 1,200 curated listings in prime
+            locations.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-3">
+          <div class="why-icon">💡</div>
+          <h3 class="why-title">Expert Guidance</h3>
+          <p class="why-text">Step-by-step guidance through buying, renting, or selling — making real estate effortless.
+          </p>
+        </div>
+        <div class="why-card reveal reveal-delay-4">
+          <div class="why-icon">📞</div>
+          <h3 class="why-title">24/7 Support</h3>
+          <p class="why-text">Our team is always available to answer questions, schedule viewings, and support your
+            journey.</p>
+        </div>
+      </div>
+    </section>
 
-<h2>About Us</h2>
+    <!-- ── AGENT ── -->
+    <section class="agent-section" id="about" aria-labelledby="agent-heading">
+      <div class="agent-grid">
+        <div class="agent-image-wrap reveal">
+          <img src="business.jpg" alt="John Smith — Licensed Real Estate Agent" width="400" height="500" loading="lazy">
+          <div class="agent-badge">10+ Years Experience</div>
+        </div>
+        <div class="agent-content reveal reveal-delay-2">
+          <p class="section-label">Our Top Agent</p>
+          <h2 id="agent-heading">John Smith</h2>
+          <p class="agent-role">Licensed Real Estate Agent &amp; Senior Advisor</p>
+          <p class="agent-bio">With over a decade of experience in luxury and residential real estate, John has helped
+            more than 850 families find their perfect home. His deep market knowledge and personalized approach set him
+            apart from the rest.</p>
+          <div class="agent-skills">
+            <span>Luxury Properties</span>
+            <span>First-Time Buyers</span>
+            <span>Investment</span>
+            <span>Market Analysis</span>
+            <span>Negotiation</span>
+          </div>
+          <div class="agent-actions">
+            <button class="btn-primary" onclick="scrollToContact()">Contact John</button>
+            <a href="#featured" class="btn-outline">View Listings</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<p>
-PrimeEstate helps you find the best properties across India.
-We connect buyers, sellers, and renters with verified listings.
-</p>
+    <!-- ── TESTIMONIALS ── -->
+    <section class="testimonials" aria-labelledby="testi-heading">
+      <div class="section-header reveal">
+        <div>
+          <p class="section-label">Client Stories</p>
+          <h2 id="testi-heading">What Our Clients Say</h2>
+        </div>
+        <a href="#" class="view-all">All Reviews →</a>
+      </div>
+      <div class="testi-grid">
 
-</section>
+        <blockquote class="testi-card reveal reveal-delay-1">
+          <p class="testi-stars" aria-label="5 out of 5 stars">★★★★★</p>
+          <p class="testi-text">NestFinder made our home search incredibly smooth. John was attentive and found us a
+            property that exceeded our expectations within budget.</p>
+          <footer class="testi-author">
+            <img src="person1.jpg" alt="Sarah Mitchell" width="44" height="44" class="testi-avatar" loading="lazy">
+            <div>
+              <cite class="testi-name">Sarah Mitchell</cite>
+              <p class="testi-loc">Bought in Brooklyn, NY</p>
+            </div>
+          </footer>
+        </blockquote>
 
+        <blockquote class="testi-card reveal reveal-delay-2">
+          <p class="testi-stars" aria-label="5 out of 5 stars">★★★★★</p>
+          <p class="testi-text">Outstanding experience from start to finish. The team was professional and genuinely
+            cared about finding us the right investment property.</p>
+          <footer class="testi-author">
+            <img src="person3.jpg" alt="James Rodriguez" width="44" height="44" class="testi-avatar" loading="lazy">
+            <div>
+              <cite class="testi-name">James Rodriguez</cite>
+              <p class="testi-loc">Invested in Miami, FL</p>
+            </div>
+          </footer>
+        </blockquote>
 
-<section class="contact" id="contact">
+        <blockquote class="testi-card reveal reveal-delay-3">
+          <p class="testi-stars" aria-label="4 out of 5 stars">★★★★☆</p>
+          <p class="testi-text">As first-time buyers we were nervous, but NestFinder guided us every step of the way. We
+            found our dream home in just three weeks!</p>
+          <footer class="testi-author">
+            <img src="person2.jpg"
+              alt="Emily and Tom Chen" width="44" height="44" class="testi-avatar" loading="lazy">
+            <div>
+              <cite class="testi-name">Emily &amp; Tom Chen</cite>
+              <p class="testi-loc">Bought in Austin, TX</p>
+            </div>
+          </footer>
+        </blockquote>
 
-<h2>Contact Us</h2>
+      </div>
+    </section>
 
-<form id="contactForm">
+    <!-- ── CTA ── -->
+    <section class="cta-section" aria-labelledby="cta-heading">
+      <p class="section-label">Get Started</p>
+      <h2 id="cta-heading">Ready to Find Your Perfect Home?</h2>
+      <p>Join thousands of happy homeowners. Let us guide you to the property of your dreams.</p>
+      <div class="cta-form">
+      </div>
+    </section>
 
-<input type="text" placeholder="Your Name" required>
-<input type="email" placeholder="Email Address" required>
-<textarea placeholder="Your Message"></textarea>
+    <!-- ── CONTACT ── -->
+    <section class="contact-section" id="contact" aria-labelledby="contact-heading">
+      <div class="section-header reveal">
+        <div>
+          <p class="section-label">Get In Touch</p>
+          <h2 id="contact-heading">Contact Us</h2>
+        </div>
+      </div>
+      <div class="contact-grid">
 
-<button type="submit">Send Message</button>
+        <div class="contact-info reveal">
+          <p>Whether you're looking to buy, sell, or rent — our expert agents are here to help every step of the way.
+          </p>
+          <address>
+            <div class="contact-item">
+              <span class="contact-icon">📍</span>
+              <div>
+                <small>Address</small>
+                <strong>India New Delhi (Dwarka)</strong>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">📞</span>
+              <div>
+                <small>Phone</small>
+                <strong><a href="tel:+11234567890">+91 9319376656</a></strong>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">✉️</span>
+              <div>
+                <small>Email</small>
+                <strong><a href="mailto:tanveersinghh85446@gmail.com">tanveersinghh85446@gmail.com</a></strong>
+              </div>
+            </div>
+          </address>
+        </div>
 
-</form>
+        <div class="contact-form reveal reveal-delay-2">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" placeholder="Name" autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="you@email.com" autocomplete="email">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phone">+91 000-000-0000</label>
+            <input type="tel" id="phone" placeholder="+91 000-000-0000" autocomplete="tel">
+          </div>
+          <div class="form-group">
+            <label for="interest">Interested In</label>
+            <select id="interest">
+              <option value="buy">Buying a Property</option>
+              <option value="rent">Renting a Property</option>
+              <option value="sell">Selling a Property</option>
+              <option value="invest">Investment Advice</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" placeholder="Tell us about your property needs..."></textarea>
+          </div>
+          <button class="form-submit" type="button" onclick="handleFormSubmit(event)">Send Message →</button>
+        </div>
 
-</section>
+      </div>
+    </section>
+  </main>
 
+  <!-- ── FOOTER ── -->
+  <footer aria-label="Site footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="logo" aria-label="NestFinder Home">
+          <div class="logo-dot"></div> NestFinder
+        </a>
+        <p>Your trusted partner in finding exceptional properties. Premium listings, expert agents, lasting
+          relationships.</p>
+        <div class="social-links" aria-label="Social media links">
+          <a href="#" class="social-link" aria-label="Facebook">F</a>
+          <a href="#" class="social-link" aria-label="Twitter">T</a>
+          <a href="#" class="social-link" aria-label="LinkedIn">IN</a>
+          <a href="#" class="social-link" aria-label="Instagram">IG</a>
+        </div>
+      </div>
 
-<footer>
-<p>© 2026 PrimeEstate | All Rights Reserved</p>
-</footer>
+      <nav class="footer-col" aria-label="Quick links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#featured">Listings</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </nav>
 
-<script src="script.js"></script>
+      <nav class="footer-col" aria-label="Property types">
+        <h4>Property Types</h4>
+        <ul>
+          <li><a href="#">Apartments</a></li>
+          <li><a href="#">Houses</a></li>
+          <li><a href="#">Villas</a></li>
+          <li><a href="#">Commercial</a></li>
+          <li><a href="#">Land</a></li>
+        </ul>
+      </nav>
 
+      <nav class="footer-col" aria-label="Services">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Property Search</a></li>
+          <li><a href="#">Home Valuation</a></li>
+          <li><a href="#">Mortgage Help</a></li>
+          <li><a href="#">Legal Support</a></li>
+          <li><a href="#">Relocation</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2024 NestFinder. All rights reserved.</p>
+      <nav aria-label="Legal links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
